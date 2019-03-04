@@ -1,0 +1,61 @@
+data_params:
+  path_result: ./MeData/dev1_r.txt
+  path_test: ./MeData/dev1.txt
+  path_train: ./MeData/train1.txt
+  sep: table
+  voc_params:
+    f1: {min_count: 0, path: ./Res/voc/f1.voc.pkl}
+    f2: {min_count: 0, path: ./Res/voc/f2.voc.pkl}
+    f3: {min_count: 0, path: ./Res/voc/f3.voc.pkl}
+    f4: {min_count: 0, path: ./Res/voc/f4.voc.pkl}
+    f5: {min_count: 0, path: ./Res/voc/f5.voc.pkl}
+    f6: {min_count: 0, path: ./Res/voc/f6.voc.pkl}
+    label: {min_count: 0, path: ./Res/voc/label.voc.pkl}
+model: NER
+model_params:
+  batch_size: 10
+  bilstm_params: {num_layers: 1, num_units: 256}
+  clip: 10
+  dev_size: 0.1
+  dropout_rate: 0.5
+  embed_params:
+    f1:
+      dropout_rate: 0.3
+      path: ./Res/embed/char_embed.pkl
+      path_pre_train: ./MeData/char.txt
+      shape: [3074, 300]
+    f2:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [4, 32]
+    f3:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [3, 32]
+    f4:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [3, 32]
+    f5:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [5, 32]
+    f6:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [145, 32]
+  feature_names: [f1, f2, f3, f4, f5, f6]
+  l2_rate: 0.01
+  learning_rate: 0.002
+  max_patience: 20
+  nb_classes: 28
+  nb_epoch: 200
+  path_model: ./Model1/best_mode1
+  rnn_unit: lstm
+  sequence_length: 200
+  use_crf: true

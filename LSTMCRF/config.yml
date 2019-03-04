@@ -1,0 +1,92 @@
+data_params:
+  path_result: ./data/mytest_result.txt
+  path_test: ./data/newtest.txt
+  path_train: ./data/newtrain.txt
+  sep: table
+  voc_params:
+    f1: {min_count: 0, path: ./Res/voc/f1.voc.pkl}
+    f10: {min_count: 0, path: ./Res/voc/f10.voc.pkl}
+    f11: {min_count: 0, path: ./Res/voc/f11.voc.pkl}
+    f2: {min_count: 0, path: ./Res/voc/f2.voc.pkl}
+    f3: {min_count: 0, path: ./Res/voc/f3.voc.pkl}
+    f4: {min_count: 0, path: ./Res/voc/f4.voc.pkl}
+    f5: {min_count: 0, path: ./Res/voc/f5.voc.pkl}
+    f6: {min_count: 0, path: ./Res/voc/f6.voc.pkl}
+    f7: {min_count: 0, path: ./Res/voc/f7.voc.pkl}
+    f8: {min_count: 0, path: ./Res/voc/f8.voc.pkl}
+    f9: {min_count: 0, path: ./Res/voc/f9.voc.pkl}
+    label: {min_count: 0, path: ./Res/voc/label.voc.pkl}
+model: NER
+model_params:
+  batch_size: 10
+  bi_direction: true
+  bilstm_params: {num_layers: 1, num_units: 256}
+  clip: 10
+  dev_size: 0.1
+  dropout_rate: 0.5
+  embed_params:
+    f1:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [106, 32]
+    f10:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [80, 32]
+    f11:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [8, 32]
+    f2:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [29, 32]
+    f3:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [11, 32]
+    f4:
+      dropout_rate: 0.3
+      path: ./Res/embed/char_embed.pkl
+      path_pre_train: ./data/vect.txt
+      shape: [5845, 100]
+    f5:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [91, 32]
+    f6:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [90, 32]
+    f7:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [16, 32]
+    f8:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [89, 32]
+    f9:
+      dropout_rate: 0.3
+      path: null
+      path_pre_train: null
+      shape: [51, 32]
+  feature_names: [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
+  l2_rate: 0.01
+  learning_rate: 0.002
+  max_patience: 20
+  nb_classes: 6
+  nb_epoch: 200
+  path_model: ./Model/best_model
+  rnn_unit: lstm
+  sequence_length: 200
+  use_crf: false
